@@ -8,10 +8,107 @@
         Title="Dane do rekomendacji na żądanie" Height="372.549" Width="525">
     <Grid>
         <Button Content="Rekomenduj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Margin="382,107,0,0" Click="Button_Click" Height="22"/>
-        <ListBox HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="433" Margin="51,167,0,0"/>
+        <ListBox Name="RekomendowaneLstbx" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="433" Margin="51,167,0,0"/>
         <Button Content="Kup produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Margin="338,290,0,0"/>
-        <Button Content="Obejrzyj produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="51,290,0,0"/>
-        <ListBox HorizontalAlignment="Left" Height="88" Margin="51,41,0,0" VerticalAlignment="Top" Width="317"/>
+        <Button x:Name="ObejrzyjBtn" Content="Obejrzyj produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="51,290,0,0" Click="ObejrzyjBtn_Click"/>
+        <ListBox Name="CechyLstbx" HorizontalAlignment="Left" Height="88" Margin="51,41,0,0" VerticalAlignment="Top" Width="317" SelectionChanged="ListBox_SelectionChanged">
+            <ListBoxItem Background="LightCoral" Foreground="Red"
+
+             FontFamily="Verdana" FontSize="12" FontWeight="Bold">
+
+                <CheckBox Name="CoffieCheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Coffie"></TextBlock>
+
+                    </StackPanel>
+
+                </CheckBox>
+
+            </ListBoxItem>
+
+            <ListBoxItem Background="LightGray" Foreground="Black"
+
+             FontFamily="Georgia" FontSize="14" FontWeight="Bold">
+
+                <CheckBox Name="TeaCheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Tea"></TextBlock>
+
+                    </StackPanel>
+
+                </CheckBox>
+
+            </ListBoxItem>
+
+            <ListBoxItem Background="LightBlue" Foreground="Purple"
+
+             FontFamily="Verdana" FontSize="12" FontWeight="Bold">
+
+                <CheckBox Name="OrangeJuiceCheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="OrangeJuice"></TextBlock>
+
+                    </StackPanel>
+
+                </CheckBox>
+
+            </ListBoxItem>
+
+            <ListBoxItem Background="LightGreen" Foreground="Green"
+
+             FontFamily="Georgia" FontSize="14" FontWeight="Bold">
+
+                <CheckBox Name="MilkCheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Milk"></TextBlock>
+
+                    </StackPanel>
+
+                </CheckBox>
+
+            </ListBoxItem>
+
+            <ListBoxItem Background="LightBlue" Foreground="Blue"
+
+             FontFamily="Verdana" FontSize="12" FontWeight="Bold">
+
+                <CheckBox Name="IcedTeaCheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Iced Tea"></TextBlock>
+
+                    </StackPanel>
+
+                </CheckBox>
+
+            </ListBoxItem>
+
+            <ListBoxItem Background="LightSlateGray" Foreground="Orange"
+
+             FontFamily="Georgia" FontSize="14" FontWeight="Bold">
+
+                <CheckBox Name="MangoShakeCheckBox">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Mango Shake"></TextBlock>
+
+                    </StackPanel>
+
+                </CheckBox>
+
+            </ListBoxItem>
+
+        </ListBox>
         <Label Content="Wybór cech" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,10,0,0" Height="27"/>
         <Label Content="Rekomendowane produkty&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,136,0,0"/>
     </Grid>
