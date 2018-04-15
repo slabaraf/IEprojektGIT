@@ -1,0 +1,79 @@
+﻿<Window x:Class="ProjektIEwpf.DetailedSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektIEwpf"
+        mc:Ignorable="d"
+        Title="DetailedSearch" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=" 50*"/>
+            <ColumnDefinition Width=" 50*"/>
+            <ColumnDefinition Width=" 50*"/>
+            <ColumnDefinition Width=" 50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="4">Wybierz interesujące Cię opcje</TextBlock>
+        <Label Grid.Column="0" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Producent</Label>
+        <ComboBox Name="Producent_LstBx" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem>--dowolny--</ComboBoxItem>
+            <ComboBoxItem>MassLab</ComboBoxItem>
+            <ComboBoxItem>FitLabs</ComboBoxItem>
+            <ComboBoxItem>FA</ComboBoxItem>
+            <ComboBoxItem>ActivLab</ComboBoxItem>
+        </ComboBox>
+        <Label Grid.Column="0" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Nazwa</Label>
+        <TextBox Name="Nazwa_TxtBx" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="NazwaTxtBx_Focus" Width="100">Podaj nazwe</TextBox>
+        <Label Grid.Column="0" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Kategoria</Label>
+        <ComboBox Name="Kategoria_LstBx" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem>--dowolny--</ComboBoxItem>
+            <ComboBoxItem>Izotoniki</ComboBoxItem>
+            <ComboBoxItem>Produkty startowe</ComboBoxItem>
+            <ComboBoxItem>Produkty regeneracyjne</ComboBoxItem>
+            <ComboBoxItem>Ochronne aparatu ruchu</ComboBoxItem>
+            <ComboBoxItem>Białko</ComboBoxItem>
+            <ComboBoxItem>Gainery</ComboBoxItem>
+            <ComboBoxItem>Spalacze tłuszczu</ComboBoxItem>
+            <ComboBoxItem>Na pompę mięśniową</ComboBoxItem>
+            <ComboBoxItem>Kompleksy witaminowe</ComboBoxItem>
+            <ComboBoxItem>Odporność</ComboBoxItem>
+            <ComboBoxItem>Pobudzenie energetyczne</ComboBoxItem>
+            <ComboBoxItem>Pobudzenie seksualne</ComboBoxItem>
+            <ComboBoxItem>Środek nasenny</ComboBoxItem>
+        </ComboBox>
+        <Label Grid.Column="0" Grid.Row="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Forma</Label>
+        <ComboBox Name="Forma_LstBx" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+            <ComboBoxItem>--dowolny--</ComboBoxItem>
+            <ComboBoxItem>Tabletki</ComboBoxItem>
+            <ComboBoxItem>Tabletki rozpuszczalne</ComboBoxItem>
+            <ComboBoxItem>Prochy</ComboBoxItem>
+            <ComboBoxItem>Batony</ComboBoxItem>
+            <ComboBoxItem>Żele</ComboBoxItem>
+            <ComboBoxItem>Napoje</ComboBoxItem>
+            <ComboBoxItem>Maści</ComboBoxItem>
+        </ComboBox>
+        <Label Grid.Column="0" Grid.Row="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt wegański</Label>
+        <CheckBox Name="Weganski_ChckBx" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <Label Grid.Column="2" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt bez glutenu</Label>
+        <CheckBox Name="Gluten_ChckBx" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <Label Grid.Column="2" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt bez laktozy</Label>
+        <CheckBox Name="Laktoza_ChckBx" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <Label Grid.Column="2" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Zawiera orzechy</Label>
+        <CheckBox Name="Orzechy_ChckBx" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <Label Grid.Column="2" Grid.Row="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt naturalny</Label>
+        <CheckBox Name="Naturalny_ChckBx" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <Label Grid.Column="2" Grid.Row="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Cena orientacyjna</Label>
+        <TextBox Name="Cena_TxtBx" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="Cena_TxtBx_Focus" Width="100">Podaj cene</TextBox>
+        <Button Name="Anuluj_Btn" Grid.Row="6" Grid.Column="2" Margin="10">Anuluj</Button>
+        <Button Name="Zapisz_Btn" Grid.Row="6" Grid.Column="3" Margin="10">Zapisz i wyszukaj</Button>
+    </Grid>
+</Window>

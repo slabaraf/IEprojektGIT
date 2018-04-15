@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,9 +56,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database5DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database5DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DetailedSearch.xaml.cs">
+      <DependentUpon>DetailedSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rekomendator.cs" />
     <Compile Include="SklepOkno.xaml.cs">
       <DependentUpon>SklepOkno.xaml</DependentUpon>
     </Compile>
+    <Page Include="DetailedSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +107,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Database5DataSet.xsc">
+      <DependentUpon>Database5DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database5DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database5DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database5DataSet.xss">
+      <DependentUpon>Database5DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -99,6 +125,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database5.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
