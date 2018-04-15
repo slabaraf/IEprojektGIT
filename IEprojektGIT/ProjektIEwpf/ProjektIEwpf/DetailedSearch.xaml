@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <TextBlock FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="4">Wybierz interesujące Cię opcje</TextBlock>
         <Label Grid.Column="0" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Producent</Label>
-        <ComboBox Name="Producent_LstBx" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+        <ComboBox Name="Producent_LstBx" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0" SelectionChanged="Producent_LstBx_SelectionChanged">
             <ComboBoxItem>--dowolny--</ComboBoxItem>
             <ComboBoxItem>MassLab</ComboBoxItem>
             <ComboBoxItem>FitLabs</ComboBoxItem>
@@ -32,9 +32,9 @@
             <ComboBoxItem>ActivLab</ComboBoxItem>
         </ComboBox>
         <Label Grid.Column="0" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Nazwa</Label>
-        <TextBox Name="Nazwa_TxtBx" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="NazwaTxtBx_Focus" Width="100">Podaj nazwe</TextBox>
+        <TextBox Name="Nazwa_TxtBx" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="NazwaTxtBx_Focus" Width="100" TextChanged="Nazwa_TxtBx_TextChanged">Podaj nazwe</TextBox>
         <Label Grid.Column="0" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Kategoria</Label>
-        <ComboBox Name="Kategoria_LstBx" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+        <ComboBox Name="Kategoria_LstBx" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0" SelectionChanged="Kategoria_LstBx_SelectionChanged">
             <ComboBoxItem>--dowolny--</ComboBoxItem>
             <ComboBoxItem>Izotoniki</ComboBoxItem>
             <ComboBoxItem>Produkty startowe</ComboBoxItem>
@@ -51,7 +51,7 @@
             <ComboBoxItem>Środek nasenny</ComboBoxItem>
         </ComboBox>
         <Label Grid.Column="0" Grid.Row="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Forma</Label>
-        <ComboBox Name="Forma_LstBx" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0">
+        <ComboBox Name="Forma_LstBx" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" SelectedIndex="0" SelectionChanged="Forma_LstBx_SelectionChanged">
             <ComboBoxItem>--dowolny--</ComboBoxItem>
             <ComboBoxItem>Tabletki</ComboBoxItem>
             <ComboBoxItem>Tabletki rozpuszczalne</ComboBoxItem>
@@ -62,18 +62,18 @@
             <ComboBoxItem>Maści</ComboBoxItem>
         </ComboBox>
         <Label Grid.Column="0" Grid.Row="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt wegański</Label>
-        <CheckBox Name="Weganski_ChckBx" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Name="Weganski_ChckBx" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Weganski_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt bez glutenu</Label>
-        <CheckBox Name="Gluten_ChckBx" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Name="Gluten_ChckBx" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Gluten_ChckBx_Checked_1"></CheckBox>
         <Label Grid.Column="2" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt bez laktozy</Label>
-        <CheckBox Name="Laktoza_ChckBx" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Name="Laktoza_ChckBx" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Laktoza_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Zawiera orzechy</Label>
-        <CheckBox Name="Orzechy_ChckBx" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Name="Orzechy_ChckBx" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Orzechy_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt naturalny</Label>
-        <CheckBox Name="Naturalny_ChckBx" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Name="Naturalny_ChckBx" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Naturalny_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Cena orientacyjna</Label>
         <TextBox Name="Cena_TxtBx" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="Cena_TxtBx_Focus" Width="100">Podaj cene</TextBox>
         <Button Name="Anuluj_Btn" Grid.Row="6" Grid.Column="2" Margin="10">Anuluj</Button>
-        <Button Name="Zapisz_Btn" Grid.Row="6" Grid.Column="3" Margin="10">Zapisz i wyszukaj</Button>
+        <Button Name="Zapisz_Btn" Grid.Row="6" Grid.Column="3" Margin="10" Click="Zapisz_Btn_Click">Zapisz i wyszukaj</Button>
     </Grid>
 </Window>

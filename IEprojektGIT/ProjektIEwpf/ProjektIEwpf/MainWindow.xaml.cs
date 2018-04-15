@@ -25,7 +25,7 @@ namespace ProjektIEwpf
         {
             InitializeComponent();
             
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\projekty\IE2\IEprojektGIT\Database5.accdb");
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\admin\Desktop\Informatyka Ekonomiczna\Database5.accdb");
             con.Open();
             string queryString = "SELECT * FROM Produkt";
             OleDbCommand cmd = new OleDbCommand(queryString, con);
@@ -67,6 +67,11 @@ namespace ProjektIEwpf
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void RekomendowaneLstbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

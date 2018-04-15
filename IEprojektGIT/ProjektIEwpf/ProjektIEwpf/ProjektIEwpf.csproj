@@ -61,6 +61,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database5DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataGridWindow.xaml.cs">
+      <DependentUpon>DataGridWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DetailedSearch.xaml.cs">
       <DependentUpon>DetailedSearch.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,10 @@
     <Compile Include="SklepOkno.xaml.cs">
       <DependentUpon>SklepOkno.xaml</DependentUpon>
     </Compile>
+    <Page Include="DataGridWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DetailedSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
