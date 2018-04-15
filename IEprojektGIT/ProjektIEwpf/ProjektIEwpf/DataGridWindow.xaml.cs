@@ -37,11 +37,9 @@ namespace ProjektIEwpf
 
         }
 
-       
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lb_products_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
     }
 }

@@ -75,5 +75,17 @@ namespace ProjektIEwpf
         {
 
         }
+
+        private void M1_Click(object sender, RoutedEventArgs e)
+        {
+            Window W1 = new MainWindow();
+            W1.Show();
+        }
+
+        private void M2_Click(object sender, RoutedEventArgs e)
+        {
+            Window W1 = new SklepOkno();
+            W1.Show();
+        }
     }
 }

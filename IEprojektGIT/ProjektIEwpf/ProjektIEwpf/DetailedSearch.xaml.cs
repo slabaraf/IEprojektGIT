@@ -33,37 +33,37 @@ namespace ProjektIEwpf
         {
             Cena_TxtBx.Text = "";
         }
-        bool czyGluten;
+        bool czyGluten { get; set; }
         private void Gluten_ChckBx_Checked(object sender, RoutedEventArgs e)
         {
             czyGluten = Gluten_ChckBx.IsChecked.Value;
         }
-        bool czyLaktoza;
+        bool czyLaktoza { get; set; }
         private void Laktoza_ChckBx_Checked(object sender, RoutedEventArgs e)
         {
             czyLaktoza = Laktoza_ChckBx.IsChecked.Value;
         }
-        bool czyOrzechy;
+        bool czyOrzechy { get; set; }
         private void Orzechy_ChckBx_Checked(object sender, RoutedEventArgs e)
         {
             czyOrzechy = Orzechy_ChckBx.IsChecked.Value;
         }
-        bool czyNaturalny;
+        bool czyNaturalny { get; set; }
         private void Naturalny_ChckBx_Checked(object sender, RoutedEventArgs e)
         {
             czyNaturalny = Naturalny_ChckBx.IsChecked.Value;
         }
-        bool czyWeganski;
+        bool czyWeganski { get; set; }
         private void Weganski_ChckBx_Checked(object sender, RoutedEventArgs e)
         {
             czyWeganski = Weganski_ChckBx.IsChecked.Value;
         }
-        string jakProducent;
+        string jakProducent { get; set; }
         private void Producent_LstBx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             jakProducent = Producent_LstBx.SelectedValue.ToString();
         }
-        string jakKategoria;
+        string jakKategoria { get; set; }
         private void Kategoria_LstBx_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             jakKategoria = Kategoria_LstBx.SelectedValue.ToString();

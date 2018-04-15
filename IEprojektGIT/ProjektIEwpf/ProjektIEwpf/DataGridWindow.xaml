@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="DataGridWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="lb_products" HorizontalAlignment="Left" Height="267" VerticalAlignment="Top" Width="448" Margin="147,51,0,0"/>
+        <ListBox x:Name="lb_products" HorizontalAlignment="Left" Height="267" VerticalAlignment="Top" Width="448" Margin="147,51,0,0" SelectionChanged="lb_products_SelectionChanged"/>
     </Grid>
 </Window>
