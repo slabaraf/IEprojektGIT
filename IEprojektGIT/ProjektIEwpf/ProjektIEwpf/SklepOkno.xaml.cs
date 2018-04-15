@@ -32,8 +32,16 @@ namespace ProjektIEwpf
 
             while (reader.Read())
             {
-                lb_products.Items.Add(reader.GetString(1) + ", " + reader.GetString(2) + ", " + reader.GetValue(3));
+                StringBuilder sb = new StringBuilder();
+                for (int i = 1; i < 10; i++)
+                {
+                    sb.Append(reader.GetValue(i));
+                    lb_products.Items.Add(sb);
+                }
+                //lb_products.Items.Add(reader.GetValue(1) + ", " + reader.GetValue(2) + ", " + reader.GetValue(3));
             }
+
+            reader.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
