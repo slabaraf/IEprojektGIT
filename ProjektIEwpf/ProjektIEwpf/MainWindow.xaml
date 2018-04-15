@@ -6,21 +6,18 @@
         xmlns:local="clr-namespace:ProjektIEwpf"
         mc:Ignorable="d"
         Title="Dane do rekomendacji na żądanie" Height="372.549" Width="525">
-    <Grid>
-        <Button Content="Rekomenduj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Margin="382,107,0,0" Click="Button_Click" Height="22"/>
-        <ListBox Name="RekomendowaneLstbx" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="433" Margin="51,167,0,0"/>
-        <Button Content="Kup produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Margin="338,290,0,0"/>
-        <Button x:Name="ObejrzyjBtn" Content="Obejrzyj produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Margin="51,290,0,0" Click="ObejrzyjBtn_Click"/>
-        <ListBox Name="CechyLstbx" HorizontalAlignment="Left" Height="88" Margin="51,41,0,0" VerticalAlignment="Top" Width="317" SelectionChanged="ListBox_SelectionChanged">
-            <ListBoxItem Background="LightCoral" Foreground="Red"
+    <Grid Margin="0,0,2,-1">
+        <Button Content="Rekomenduj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Margin="276,218,0,0" Click="Button_Click" Height="28"/>
+        <ListBox Name="CechyLstbx" HorizontalAlignment="Left" Height="100" Margin="276,56,0,0" VerticalAlignment="Top" Width="176" SelectionChanged="ListBox_SelectionChanged" RenderTransformOrigin="1.795,1.9">
+            <ListBoxItem 
 
              FontFamily="Verdana" FontSize="12" FontWeight="Bold">
 
-                <CheckBox Name="CoffieCheckBox">
+                <CheckBox Name="VeganCheckBox">
 
                     <StackPanel Orientation="Horizontal">
 
-                        <TextBlock Text="Coffie"></TextBlock>
+                        <TextBlock Text="Wegańskie"></TextBlock>
 
                     </StackPanel>
 
@@ -28,15 +25,15 @@
 
             </ListBoxItem>
 
-            <ListBoxItem Background="LightGray" Foreground="Black"
+            <ListBoxItem 
 
              FontFamily="Georgia" FontSize="14" FontWeight="Bold">
 
-                <CheckBox Name="TeaCheckBox">
+                <CheckBox Name="GlutenCheckBox">
 
                     <StackPanel Orientation="Horizontal">
 
-                        <TextBlock Text="Tea"></TextBlock>
+                        <TextBlock Text="Gluten"></TextBlock>
 
                     </StackPanel>
 
@@ -44,15 +41,15 @@
 
             </ListBoxItem>
 
-            <ListBoxItem Background="LightBlue" Foreground="Purple"
+            <ListBoxItem 
 
              FontFamily="Verdana" FontSize="12" FontWeight="Bold">
 
-                <CheckBox Name="OrangeJuiceCheckBox">
+                <CheckBox Name="LaktozaCheckBox">
 
                     <StackPanel Orientation="Horizontal">
 
-                        <TextBlock Text="OrangeJuice"></TextBlock>
+                        <TextBlock Text="Laktoza"></TextBlock>
 
                     </StackPanel>
 
@@ -60,15 +57,15 @@
 
             </ListBoxItem>
 
-            <ListBoxItem Background="LightGreen" Foreground="Green"
+            <ListBoxItem 
 
              FontFamily="Georgia" FontSize="14" FontWeight="Bold">
 
-                <CheckBox Name="MilkCheckBox">
+                <CheckBox Name="OrzechyCheckBox">
 
                     <StackPanel Orientation="Horizontal">
 
-                        <TextBlock Text="Milk"></TextBlock>
+                        <TextBlock Text="Orzechy"></TextBlock>
 
                     </StackPanel>
 
@@ -76,31 +73,15 @@
 
             </ListBoxItem>
 
-            <ListBoxItem Background="LightBlue" Foreground="Blue"
+            <ListBoxItem 
 
              FontFamily="Verdana" FontSize="12" FontWeight="Bold">
 
-                <CheckBox Name="IcedTeaCheckBox">
+                <CheckBox Name="ProduktNaturalnyCheckBox">
 
                     <StackPanel Orientation="Horizontal">
 
-                        <TextBlock Text="Iced Tea"></TextBlock>
-
-                    </StackPanel>
-
-                </CheckBox>
-
-            </ListBoxItem>
-
-            <ListBoxItem Background="LightSlateGray" Foreground="Orange"
-
-             FontFamily="Georgia" FontSize="14" FontWeight="Bold">
-
-                <CheckBox Name="MangoShakeCheckBox">
-
-                    <StackPanel Orientation="Horizontal">
-
-                        <TextBlock Text="Mango Shake"></TextBlock>
+                        <TextBlock Text="Prodykt Naturalny"></TextBlock>
 
                     </StackPanel>
 
@@ -109,7 +90,16 @@
             </ListBoxItem>
 
         </ListBox>
-        <Label Content="Wybór cech" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,10,0,0" Height="27"/>
-        <Label Content="Rekomendowane produkty&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,136,0,0"/>
+        <Label Content="Wybór cech" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,29,0,0" Height="27"/>
+        <ComboBox x:Name="Producent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="51,110,0,0"/>
+        <Label Content="Wybór prducenta&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,84,0,0" Height="26" Width="104"/>
+        <Label Content="Wybór formy&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,137,0,0" Height="25" Width="81"/>
+        <ComboBox x:Name="Forma" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="51,162,0,0"/>
+        <Label Content="Nazwa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,30,0,0"/>
+        <ComboBox x:Name="Nazwa" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="51,57,0,0"/>
+        <Label Content="Kategoria" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,189,0,0"/>
+        <ComboBox x:Name="Kategoria" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="51,215,0,0"/>
+        <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,268,0,0" Width="111"/>
+        <Label Content="Cena" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,242,0,0"/>
     </Grid>
 </Window>

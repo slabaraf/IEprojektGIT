@@ -23,17 +23,17 @@ namespace ProjektIEwpf
     {
         public MainWindow()
         {
-            InitializeComponent();
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\projekty\IE2\IEprojektGIT\Database4.accdb");
-            con.Open();
-            string queryString = "SELECT * FROM Produkty";
-            OleDbCommand cmd = new OleDbCommand(queryString, con);
-            OleDbDataReader reader = cmd.ExecuteReader();
+            //InitializeComponent();
+            //OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\projekty\IE2\IEprojektGIT\Database4.accdb");
+            //con.Open();
+            //string queryString = "SELECT * FROM Produkty";
+            //OleDbCommand cmd = new OleDbCommand(queryString, con);
+            //OleDbDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
-            {
-                RekomendowaneLstbx.Items.Add(reader.GetString(1)+ ", " + reader.GetString(2));
-            }
+            //while (reader.Read())
+            //{
+            //    RekomendowaneLstbx.Items.Add(reader.GetString(1)+ ", " + reader.GetString(2));
+            //}
 
             
 
@@ -56,10 +56,10 @@ namespace ProjektIEwpf
 
         private void ObejrzyjBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (RekomendowaneLstbx.SelectedValue!=null)
-            {
-                Window obejrzyj = new Window();
-            }
+            //if (RekomendowaneLstbx.SelectedValue!=null)
+            //{
+            //    Window obejrzyj = new Window();
+            //}
             
             
         }
