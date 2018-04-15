@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Dostępne produkty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,28,0,0"/>
         <ListBox x:Name="lb_products" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="265" Margin="29,59,0,0" SelectionChanged="ListBox_SelectionChanged"/>
-        <Button Content="Obejrzyj produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="29,250,0,0" Click="Button_Click"/>
+        <Button x:Name="ShowProduct" Content="Obejrzyj produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="29,250,0,0" Click="Button_Click"/>
         <Button Content="Kup produkt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Margin="29,277,0,0" Click="Button_Click_1"/>
         <TabControl HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="274" Margin="331,59,0,0">
             <TabItem Header="Polecamy" Margin="-2,0,-4,0">
