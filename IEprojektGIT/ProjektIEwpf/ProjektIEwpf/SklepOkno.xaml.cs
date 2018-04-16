@@ -35,9 +35,11 @@ namespace ProjektIEwpf
                 StringBuilder sb = new StringBuilder();
                 for (int i = 1; i < 10; i++)
                 {
-                    sb.Append(reader.GetValue(i));
-                    lb_products.Items.Add(sb);
+                    sb.Append(reader.GetValue(i) + ", ");
+                    
                 }
+                sb.Append(reader.GetValue(10));
+                lb_products.Items.Add(sb);
                 //lb_products.Items.Add(reader.GetValue(1) + ", " + reader.GetValue(2) + ", " + reader.GetValue(3));
             }
 
@@ -47,6 +49,24 @@ namespace ProjektIEwpf
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            //OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\admin\Desktop\Informatyka Ekonomiczna\Database5.accdb");
+            //con.Open();
+            //string queryString = "SELECT * FROM Produkt";
+            //OleDbCommand cmd = new OleDbCommand(queryString, con);
+            //OleDbDataReader reader = cmd.ExecuteReader();
+
+            //while (reader.Read())
+            //{
+            //    StringBuilder sb = new StringBuilder();
+            //    for (int i = 1; i < 10; i++)
+            //    {
+            //        sb.Append(reader.GetValue(i) + ", ");
+
+            //    }
+            //    sb.Append(reader.GetValue(10));
+            //    lb_products.Items.Add(sb);
+            //    //lb_products.Items.Add(reader.GetValue(1) + ", " + reader.GetValue(2) + ", " + reader.GetValue(3));
+            //}
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
