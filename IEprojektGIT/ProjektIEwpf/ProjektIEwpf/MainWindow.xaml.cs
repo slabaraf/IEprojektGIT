@@ -25,7 +25,7 @@ namespace ProjektIEwpf
         {
             InitializeComponent();
             
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\admin\Desktop\Informatyka Ekonomiczna\Database5.accdb");
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\projekty\Jajebiekolejny\IEprojektGIT\Database5.accdb");
             con.Open();
             string queryString = "SELECT * FROM Produkt";
             OleDbCommand cmd = new OleDbCommand(queryString, con);

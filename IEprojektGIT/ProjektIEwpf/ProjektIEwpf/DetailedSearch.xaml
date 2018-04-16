@@ -62,17 +62,17 @@
             <ComboBoxItem>Maści</ComboBoxItem>
         </ComboBox>
         <Label Grid.Column="0" Grid.Row="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt wegański</Label>
-        <CheckBox Name="Weganski_ChckBx" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Weganski_ChckBx_Checked"></CheckBox>
+        <CheckBox Name="Weganski_ChckBx" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Weganski_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt bez glutenu</Label>
-        <CheckBox Name="Gluten_ChckBx" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Gluten_ChckBx_Checked_1"></CheckBox>
+        <CheckBox Name="Gluten_ChckBx" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Gluten_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt bez laktozy</Label>
-        <CheckBox Name="Laktoza_ChckBx" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Laktoza_ChckBx_Checked"></CheckBox>
+        <CheckBox Name="Laktoza_ChckBx" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Laktoza_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Zawiera orzechy</Label>
-        <CheckBox Name="Orzechy_ChckBx" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Orzechy_ChckBx_Checked"></CheckBox>
+        <CheckBox Name="Orzechy_ChckBx" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Orzechy_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="4" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Produkt naturalny</Label>
-        <CheckBox Name="Naturalny_ChckBx" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="Naturalny_ChckBx_Checked"></CheckBox>
+        <CheckBox Name="Naturalny_ChckBx" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Naturalny_ChckBx_Checked"></CheckBox>
         <Label Grid.Column="2" Grid.Row="5" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Cena orientacyjna</Label>
-        <TextBox Name="Cena_TxtBx" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="Cena_TxtBx_Focus" Width="100">Podaj cene</TextBox>
+        <TextBox Name="Cena_TxtBx" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" GotFocus="Cena_TxtBx_Focus" Width="100" TextChanged="Cena_TxtBx_TextChanged">Podaj cene</TextBox>
         <Button Name="Anuluj_Btn" Grid.Row="6" Grid.Column="2" Margin="10">Anuluj</Button>
         <Button Name="Zapisz_Btn" Grid.Row="6" Grid.Column="3" Margin="10" Click="Zapisz_Btn_Click">Zapisz i wyszukaj</Button>
     </Grid>
