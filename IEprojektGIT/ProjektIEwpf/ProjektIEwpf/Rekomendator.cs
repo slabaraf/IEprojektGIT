@@ -29,7 +29,7 @@ namespace ProjektIEwpf
         private static bool czyOrzechy;
         private static int cena;
 
-        private static List<>
+        
 
         public static string Producent { get => producent; set => producent = value; }
         public static string Nazwa { get => nazwa; set => nazwa = value; }
