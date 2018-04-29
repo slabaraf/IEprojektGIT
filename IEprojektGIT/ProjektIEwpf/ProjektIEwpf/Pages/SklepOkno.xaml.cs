@@ -27,19 +27,20 @@ namespace ProjektIEwpf
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
-            string queryString = "SELECT * FROM Produkt";
+
+            string queryString = "SELECT [Nazwa], [Producent] FROM Produkt";
             OleDbCommand cmd = new OleDbCommand(queryString, con);
             OleDbDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
                 StringBuilder sb = new StringBuilder();
-                for (int i = 1; i < 10; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     sb.Append(reader.GetValue(i) + ", ");
                     
                 }
-                sb.Append(reader.GetValue(10));
+
                 lb_products.Items.Add(sb);
                 //lb_products.Items.Add(reader.GetValue(1) + ", " + reader.GetValue(2) + ", " + reader.GetValue(3));
             }

@@ -67,9 +67,19 @@
     <Compile Include="DetailedSearch.xaml.cs">
       <DependentUpon>DetailedSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OgladanieProduktuPage.xaml.cs">
+      <DependentUpon>OgladanieProduktuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsCheckout.cs" />
     <Compile Include="Rekomendator.cs" />
-    <Compile Include="SklepOkno.xaml.cs">
+    <Compile Include="Pages\SklepOkno.xaml.cs">
       <DependentUpon>SklepOkno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SklepPage.xaml.cs">
+      <DependentUpon>SklepPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
     <Page Include="DataGridWindow.xaml">
       <SubType>Designer</SubType>
@@ -91,7 +101,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SklepOkno.xaml">
+    <Page Include="Pages\OgladanieProduktuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SklepOkno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SklepPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,5 +160,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

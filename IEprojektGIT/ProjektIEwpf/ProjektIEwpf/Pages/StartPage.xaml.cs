@@ -12,20 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.OleDb;
 
 namespace ProjektIEwpf
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Interaction logic for StartPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StartPage : Page
     {
-
-        public MainWindow()
+        public StartPage()
         {
             InitializeComponent();
-            _NavigationFrame.Navigate(new StartPage());
+        }
+
+
+        private void SzukajkaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/SklepPage.xaml", UriKind.Relative));
         }
     }
 }
