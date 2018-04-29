@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data;
+using System.IO;
+
 namespace ProjektIEwpf
 {
     /// <summary>
@@ -23,7 +15,10 @@ namespace ProjektIEwpf
         public DataGridWindow()
         {
             InitializeComponent();
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\projekty\Jajebiekolejny\IEprojektGIT\Database5.accdb");
+
+            string fileName = "Database5.accdb";
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+path);
             con.Open();
             
             string queryString = ComputeInput();
@@ -31,8 +26,8 @@ namespace ProjektIEwpf
             OleDbDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
-            {
-                lb_products.Items.Add(reader.GetString(1) + ", " + reader.GetString(2) + ", " + reader.GetValue(3));
+            {                                                                      
+                lb_products.Items.Add(reader.GetString(0) + ", " + reader.GetString(1) + ", " + reader.GetValue(2));
             }
 
             con.Close();
@@ -46,7 +41,8 @@ namespace ProjektIEwpf
 
         private string ComputeInput()
         {
-            string path = "SELECT * FROM Produkt WHERE";
+            string path = "SELECT [Nazwa], [Producent], Kategoria.Przeznaczenie FROM Produkt, Kategoria";
+            int initialLength = path.Length;
 
             if(Rekomendator.Producent!=null && Rekomendator.Producent!="--dowolny--")
             {
@@ -55,7 +51,7 @@ namespace ProjektIEwpf
 
             if (Rekomendator.Nazwa!=null)
             {
-                if(path.Length==27)
+                if(path.Length == initialLength)
                     path += (" [Nazwa] = '" + Rekomendator.Nazwa + "' ");
                 else
                     path += (" AND [Nazwa] = '" + Rekomendator.Nazwa + "' ");
@@ -63,60 +59,60 @@ namespace ProjektIEwpf
 
             if (Rekomendator.Kategoria != 0)
             {
-                if (path.Length == 27)
-                    path += (" [Kategoria] = " + Rekomendator.Kategoria);
+                if (path.Length == initialLength)
+                    path += (" WHERE [Kategoria] = "+Rekomendator.Kategoria+" AND Kategoria.Id = "+Rekomendator.Kategoria);
                 else
                     path += (" AND [Kategoria] = " + Rekomendator.Kategoria);
             }
 
             if (Rekomendator.Forma != 0)
             {
-                if (path.Length == 27)
-                    path += (" [Forma] = " + Rekomendator.Forma);
+                if (path.Length == initialLength)
+                    path += (" WHERE [Forma] = " + Rekomendator.Forma);
                 else
                     path += (" AND [Forma] = " + Rekomendator.Forma);
             }
 
             if (Rekomendator.CzyWegan)
             {
-                if (path.Length == 27)
-                    path += (" [Vegan] = " + Rekomendator.CzyWegan);
+                if (path.Length == initialLength)
+                    path += (" WHERE [Vegan] = " + Rekomendator.CzyWegan);
                 else
                     path += (" AND [Vegan] = " + Rekomendator.CzyWegan);
             }
 
             if (Rekomendator.CzyGluten)
             {
-                if (path.Length == 27)
-                    path += (" [Gluten] = " + Rekomendator.CzyGluten);
+                if (path.Length == initialLength)
+                    path += (" WHERE [Gluten] = " + Rekomendator.CzyGluten);
                 else
                     path += (" AND [Gluten] = " + Rekomendator.CzyGluten);
             }
 
             if (Rekomendator.CzyLaktoza)
             {
-                if (path.Length == 27)
-                    path += (" [Laktoza] = " + Rekomendator.CzyLaktoza);
+                if (path.Length == initialLength)
+                    path += (" WHERE [Laktoza] = " + Rekomendator.CzyLaktoza);
                 else
                     path += (" AND [Laktoza] = " + Rekomendator.CzyLaktoza);
             }
             if (Rekomendator.CzyOrzechy)
             {
-                if (path.Length == 27)
+                if (path.Length == initialLength)
                     path += (" [Orzechy] = " + Rekomendator.CzyOrzechy);
                 else
                     path += (" AND [Orzechy] = " + Rekomendator.CzyOrzechy);
             }
             if (Rekomendator.CzyNaturalny)
             {
-                if (path.Length == 27)
+                if (path.Length == initialLength)
                     path += (" [Produkt naturalny] = " + Rekomendator.CzyNaturalny);
                 else
                     path += (" AND [Produkt naturalny] = " + Rekomendator.CzyNaturalny);
             }
             if (Rekomendator.Cena != 0)
             {
-                if (path.Length == 27)
+                if (path.Length == initialLength)
                     path += (" [CENA] > " + (Rekomendator.Cena - 20) + " AND [Cena] < " + (Rekomendator.Cena + 20));
                 else
                     path += (" AND [Cena] > " + (Rekomendator.Cena-20) + " AND [Cena] < " + (Rekomendator.Cena+20));

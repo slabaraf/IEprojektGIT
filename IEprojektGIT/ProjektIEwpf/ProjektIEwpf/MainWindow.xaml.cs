@@ -84,7 +84,7 @@ namespace ProjektIEwpf
 
         private void M2_Click(object sender, RoutedEventArgs e)
         {
-            Window W1 = new SklepOkno();
+            SklepOkno W1 = new SklepOkno();
             W1.Show();
         }
     }
