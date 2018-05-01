@@ -70,6 +70,10 @@
     <Compile Include="Pages\OgladanieProduktuPage.xaml.cs">
       <DependentUpon>OgladanieProduktuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SymulacjaPage.xaml.cs">
+      <DependentUpon>SymulacjaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PolecaneProdukty.cs" />
     <Compile Include="ProductsCheckout.cs" />
     <Compile Include="Rekomendator.cs" />
     <Compile Include="Pages\SklepOkno.xaml.cs">
@@ -114,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SymulacjaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

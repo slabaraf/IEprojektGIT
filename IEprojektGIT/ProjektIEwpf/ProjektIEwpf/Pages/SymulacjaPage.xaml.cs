@@ -13,27 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjektIEwpf
+namespace ProjektIEwpf.Pages
 {
     /// <summary>
-    /// Interaction logic for StartPage.xaml
+    /// Interaction logic for Symulacja.xaml
     /// </summary>
-    public partial class StartPage : Page
+    public partial class Symulacja : Page
     {
-        public StartPage()
+        public Symulacja()
         {
             InitializeComponent();
         }
 
-
-        private void SzukajkaBtn_Click(object sender, RoutedEventArgs e)
+        private void Symuluj_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Pages/SklepPage.xaml", UriKind.Relative));
-        }
-
-        private void PrzegladajBtn_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Pages/SymulacjaPage.xaml", UriKind.Relative));
+            PolecaneProdukty.CountTagPoints();
+            PolecaneProdukty.CountCategoryPoints();
         }
     }
 }

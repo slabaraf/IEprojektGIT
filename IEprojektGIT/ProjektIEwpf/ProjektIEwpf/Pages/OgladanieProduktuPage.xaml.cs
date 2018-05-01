@@ -23,20 +23,20 @@ namespace ProjektIEwpf
         public OgladanieProduktuPage()
         {
             InitializeComponent();
-
-            ProductsCheckout.GetItem();
-            ProductTitleLbl.Content = ProductsCheckout.Nazwa;
-            IdLbl.Content = ProductsCheckout.Id;
-            NazwaLbl.Content = ProductsCheckout.Nazwa;
-            ProducentLbl.Content = ProductsCheckout.Producent;
-            CenaLbl.Content = ProductsCheckout.Cena;
-            KategoriaLbl.Content = ProductsCheckout.Kategoria;
-            FormaLbl.Content = ProductsCheckout.Forma;
-            WeganChckbx.IsChecked = ProductsCheckout.CzyWegan;
-            GlutenChckbx.IsChecked = ProductsCheckout.CzyGluten;
-            LaktozaChckbx.IsChecked = ProductsCheckout.CzyLaktoza;
-            OrzechyChckbx.IsChecked = ProductsCheckout.CzyOrzechy;
-            NaturalChckbx.IsChecked = ProductsCheckout.CzyNaturalny;
+            //wszystkie te guziczki labelki i checkboxy musza miec info odnosnie wszystkiego (jak sie nazywa produkt, czy weganski, blablabla)
+            //mamy to info w w ostatnim przegladnietym produkcie (wiec na ostatnim miejscu w slowniku Obejrzane = obejrzane.Count)
+            ProductTitleLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Nazwa;
+            IdLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Id;
+            NazwaLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Nazwa;
+            ProducentLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Producent;
+            CenaLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Cena;
+            KategoriaLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Kategoria;
+            FormaLbl.Content = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Forma;
+            WeganChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyWegan;
+            GlutenChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyGluten;
+            LaktozaChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyLaktoza;
+            OrzechyChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyOrzechy;
+            NaturalChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyNaturalny;
         }
     }
 }

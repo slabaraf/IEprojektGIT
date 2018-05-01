@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Wybierz interesującą Cię opcję:</TextBlock>
         <Button Name="SzukajkaBtn" Grid.Row="2" Grid.ColumnSpan="2" Margin="20" FontSize="20" Click="SzukajkaBtn_Click">Szukaj produktu</Button>
-        <Button Name="PrzegladajBtn" Grid.Row="2"  Grid.Column="2" Grid.ColumnSpan="2" Margin="20" FontSize="20">
+        <Button Name="PrzegladajBtn" Grid.Row="2"  Grid.Column="2" Grid.ColumnSpan="2" Margin="20" FontSize="20" Click="PrzegladajBtn_Click">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center">Przeglądaj z naszym super algorytmem</TextBlock>
         </Button>
         <Button Name="QuitBtn" Grid.Row="4" Grid.Column="4" Margin="15,5,15,5">Wyjdź</Button>
