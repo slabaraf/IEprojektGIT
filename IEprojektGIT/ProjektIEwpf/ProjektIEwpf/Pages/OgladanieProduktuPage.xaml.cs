@@ -38,5 +38,10 @@ namespace ProjektIEwpf
             OrzechyChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyOrzechy;
             NaturalChckbx.IsChecked = ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].CzyNaturalny;
         }
+
+        private void btn_back(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/SklepPage.xaml", UriKind.Relative));
+        }
     }
 }

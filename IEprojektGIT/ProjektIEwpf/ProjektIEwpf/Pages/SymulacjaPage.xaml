@@ -28,5 +28,6 @@
         <Button Grid.Column="1" Margin="100,30,100,30" FontSize="14" Click="Symuluj_Click">Symuluj</Button>
         <StackPanel Name="PoleconeStckpnl" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,30,100,30" FlowDirection="LeftToRight">
         </StackPanel>
+        <Button Content="Cofnij" Click="btn_back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="225,30,0,0" Grid.Row="1"/>
     </Grid>
 </Page>

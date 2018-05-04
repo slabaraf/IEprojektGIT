@@ -30,5 +30,10 @@ namespace ProjektIEwpf.Pages
             PolecaneProdukty.CountTagPoints();
             PolecaneProdukty.CountCategoryPoints();
         }
+
+        private void btn_back(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/StartPage.xaml", UriKind.Relative));
+        }
     }
 }
