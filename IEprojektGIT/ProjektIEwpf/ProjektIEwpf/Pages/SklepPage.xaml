@@ -45,6 +45,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <Button Content="Cofnij" Click="btn_back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="1" Margin="227,38,0,0" Grid.Row="1"/>
 
     </Grid>
 </Page>
