@@ -58,15 +58,20 @@ namespace ProjektIEwpf
                 //wiec przypisujemy temu produktowi id takie jak w listboksie, zeby sie zgadzalo (produkt 3 w listboksie=produkt 3 w bazie)
                 ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].Id = lb_products.SelectedIndex + 1;
                 //GetItem() wg tego podanego Id wbija sie na pelnej w baze danych i wyciaga info spod tego Id
-                ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].GetItem();
+                ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].GetItem(true);
                 //jak juz mamy wyciagniete info to otwieramy strone z przegladem tego info
                 this.NavigationService.Navigate(new Uri("Pages/OgladanieProduktuPage.xaml", UriKind.Relative));
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Kup_Click(object sender, RoutedEventArgs e)
         {
+            if (!(lb_products.SelectedItem is null))
+            {
 
+                MessageBox.Show("Produkt został kupiony!\nBędzie on miał mniejszy priorytet przy polecaniu", "Dobry wybor!", MessageBoxButton.OK);
+            }
+            
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

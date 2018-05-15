@@ -21,7 +21,7 @@
         <Label Content="Dostępne produkty" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0"/>
         <ListBox x:Name="lb_products" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="265" Margin="30,60,0,0" SelectionChanged="ListBox_SelectionChanged"/>
         <Button x:Name="ShowProduct" Content="Obejrzyj produkt" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,5,0,0" Click="Obejrzyj_Click"/>
-        <Button Content="Kup produkt" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,5,0,0" Click="Button_Click_1"/>
+        <Button Content="Kup produkt" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,5,0,0" Click="Kup_Click"/>
         <TabControl  Grid.Column="1" Height="186" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0"> <!--="274" Margin="331,59,0,0" -->
             <TabItem Header="Polecamy" Margin="-2,0,-4,0">
                 <Grid Background="#FFE5E5E5"/>

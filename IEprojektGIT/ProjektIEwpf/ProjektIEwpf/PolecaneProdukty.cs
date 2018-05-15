@@ -20,8 +20,12 @@ namespace ProjektIEwpf
         private static Dictionary<string, int> nadkategorie = new Dictionary<string, int>();
         private static Dictionary<string, int> podkategorie = new Dictionary<string, int>();
 
+        public static Dictionary<int, int> punktyProduktuTag = new Dictionary<int, int>();
+        public static Dictionary<int, int> punktyProduktuPodkat = new Dictionary<int, int>();
+        public static Dictionary<int, int> punktyProduktuNadkat = new Dictionary<int, int>();
+
         //                              string Kategoria, string slowaKlucze, string nadkategoria z ProductsCheckout
-        public static void AssignPoints(string podkategoria, string tagiZBazy, string nadkategoria)
+        public static void AddPoints(string podkategoria, string tagiZBazy, string nadkategoria)
         {
             string[] tag; //tu przechowamy tagi produktu pojedynczo
 
@@ -67,13 +71,36 @@ namespace ProjektIEwpf
             CountTagPoints();
         }
 
+        public static void DeletePoints(string podkategoria, string tagiZBazy, string nadkategoria)
+        {
+            string[] tag = tagiZBazy.Split(';');
+
+            if (podkategorie.ContainsKey(podkategoria))
+            {
+                podkategorie[podkategoria] /= 2;
+            }
+            if (nadkategorie.ContainsKey(nadkategoria))
+            {
+                nadkategorie[nadkategoria] = (int)Math.Ceiling(nadkategorie[nadkategoria] * 1.25);
+            }
+
+            foreach (string item in tag)
+            {
+                if (tagi.ContainsKey(item))
+                {
+                    tagi[item] /= 2;
+                }
+            }
+            CountTagPoints();
+        }
+
 
         public static void CountTagPoints()
         {
             //obliczanie punktow dla tagow (wedlug tego pdfa z grupy na fb) to jest nieporozumienie i niech sie ciesza, ze jest w bazie tylko 5 itemow xd
 
             //pierwszy int to id, drugi int to punkty
-            Dictionary<int, int> punktyProduktu = new Dictionary<int, int>();
+            
             int id;
             int pkt=0;
             string[] tagi;
@@ -84,6 +111,8 @@ namespace ProjektIEwpf
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
             //Id + tagi, zeby wiedziec ile uzbieral produkt na danej pozycji (i potem latwo go znalezc w bazie/slowniku Obejrzane zeby wyswietlic)
+
+
             string queryString = "SELECT Id, [Słowa klucze] FROM Produkt";
             OleDbCommand cmd = new OleDbCommand(queryString, con);
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -105,7 +134,15 @@ namespace ProjektIEwpf
                     }
                 }
 
-                punktyProduktu.Add(id, pkt); //i cyk mamy id produktu i jego liczbe punktow za tagi ktore ma
+                if (punktyProduktuTag.ContainsKey(id))
+                {
+                    punktyProduktuTag[id] += pkt;
+                }
+                else
+                {
+                    punktyProduktuTag.Add(id, pkt); //i cyk mamy id produktu i jego liczbe punktow za tagi ktore ma
+                }
+                
                 pkt = 0; //jak juz to zapisalismy to trzeba wyzerowac pkt zeby sie nie dodawaly w nieskonczonosc, wiadomo
             }
             con.Close();
@@ -116,7 +153,7 @@ namespace ProjektIEwpf
         {
 
             //pierwszy int to id, drugi int to punkty
-            Dictionary<int, int> punktyProduktu = new Dictionary<int, int>();
+            
             int id;
             int pkt=0;
             string nadkategoria = "";
@@ -129,8 +166,9 @@ namespace ProjektIEwpf
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
 
-            string queryString = "SELECT Id, Kategoria.Kategoria FROM Produkt, Kategoria WHERE Produkt.Kategoria = Kategoria.Id";
-            OleDbCommand cmd = new OleDbCommand(queryString, con);
+            string queryString2 = "SELECT Produkt.Id, Kategoria.Przeznaczenie FROM Produkt, Kategoria WHERE Produkt.Kategoria = Kategoria.Id";
+            
+            OleDbCommand cmd = new OleDbCommand(queryString2, con);
             OleDbDataReader reader = cmd.ExecuteReader();
 
 
@@ -148,6 +186,15 @@ namespace ProjektIEwpf
                         pkt += item.Value;
                     }
                 }
+                if (punktyProduktuNadkat.ContainsKey(id))
+                {
+                    punktyProduktuNadkat[id] += pkt;
+                }
+                else
+                {
+                    punktyProduktuNadkat.Add(id, pkt); //i cyk mamy id produktu i jego liczbe punktow za tagi ktore ma
+                }//i cyk mamy id produktu i jego liczbe punktow za tagi ktore ma
+                pkt = 0;
 
                 foreach (KeyValuePair<string, int> item in PolecaneProdukty.podkategorie)
                 {
@@ -156,6 +203,16 @@ namespace ProjektIEwpf
                         pkt += item.Value;
                     }
                 }
+
+                if (punktyProduktuPodkat.ContainsKey(id))
+                {
+                    punktyProduktuPodkat[id] += pkt;
+                }
+                else
+                {
+                    punktyProduktuPodkat.Add(id, pkt); //i cyk mamy id produktu i jego liczbe punktow za tagi ktore ma
+                }
+                pkt = 0;
             }
             con.Close();
         }
@@ -192,6 +249,55 @@ namespace ProjektIEwpf
             }
 
             return Nadkategoria;
+        }
+
+        public static void DodawarkaPolecanych()
+        {
+            string fileName = "Database5.accdb";
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
+            con.Open();
+
+            int j = 0, k=0;
+            for (int i = 1; i < 6; i++)
+            {
+                string queryString = "";
+                ProductsCheckout.DoPolecenia.Add(i, new ProductsCheckout());
+                if (i<3)
+                {
+                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuTag.ElementAt(i).Key;
+                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuTag.ElementAt(i-1).Key;   
+                }
+                else if (i<5)
+                {
+                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuNadkat.ElementAt(j).Key;
+                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuNadkat.ElementAt(j).Key;
+                    j++;
+                }
+                else
+                {
+                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuPodkat.ElementAt(k).Key;
+                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuPodkat.ElementAt(k).Key;
+                }
+
+
+                OleDbCommand cmd = new OleDbCommand(queryString, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ProductsCheckout.DoPolecenia[i].Nazwa = reader.GetValue(1).ToString();
+                    ProductsCheckout.DoPolecenia[i].Producent = reader.GetValue(2).ToString();
+                    ProductsCheckout.DoPolecenia[i].Kategoria = reader.GetValue(3).ToString();
+                    ProductsCheckout.DoPolecenia[i].Forma = reader.GetValue(4).ToString();
+                    ProductsCheckout.DoPolecenia[i].CzyWegan = (bool)reader.GetValue(5);
+                    ProductsCheckout.DoPolecenia[i].CzyGluten = (bool)reader.GetValue(6);
+                    ProductsCheckout.DoPolecenia[i].CzyLaktoza = (bool)reader.GetValue(7);
+                    ProductsCheckout.DoPolecenia[i].CzyOrzechy = (bool)reader.GetValue(8);
+                    ProductsCheckout.DoPolecenia[i].CzyNaturalny = (bool)reader.GetValue(9);
+                    ProductsCheckout.DoPolecenia[i].Cena = Convert.ToInt32(reader.GetValue(10));
+                }
+            }
         }
     }
 }

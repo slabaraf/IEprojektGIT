@@ -10,6 +10,7 @@ namespace ProjektIEwpf
     public class ProductsCheckout
     {
         public static Dictionary<int, ProductsCheckout> Obejrzane = new Dictionary<int, ProductsCheckout>();
+        public static Dictionary<int, ProductsCheckout> DoPolecenia = new Dictionary<int, ProductsCheckout>();
 
         private int id;
         private string producent;
@@ -40,7 +41,33 @@ namespace ProjektIEwpf
         public string SlowaKlucze { get => slowaKlucze; set => slowaKlucze = value; }
         public string Nadkategoria { get => nadkategoria; set => nadkategoria = value; }
 
-        public void GetItem()
+
+        public ProductsCheckout()
+        {
+
+        }
+
+        public ProductsCheckout(int Id, string Producent, string Nazwa, string Kategoria, string Forma, bool CzyWegan, bool CzyGluten, bool CzyLaktoza, bool CzyNaturalny, bool CzyOrzechy, int Cena, string SlowaKlucze, string Nadkategoria)
+        {
+            this.Id = Id;
+            this.Producent = Producent;
+            this.Nazwa = Nazwa;
+            this.Kategoria = Kategoria;
+            this.Forma = Forma;
+            this.CzyWegan = CzyWegan;
+            this.CzyGluten = CzyGluten;
+            this.CzyLaktoza = CzyLaktoza;
+            this.CzyNaturalny = CzyNaturalny;
+            this.CzyOrzechy = CzyOrzechy;
+            this.Cena = Cena;
+            this.SlowaKlucze = SlowaKlucze;
+            this.Nadkategoria = Nadkategoria;
+        }
+
+
+
+
+        public void GetItem(bool isAdded)
         {
             string fileName = "Database5.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
@@ -97,7 +124,16 @@ namespace ProjektIEwpf
             con.Close();
             //polecarka produktow opiera sie na trzech elementach: podkategorii (Kategoria), tagach (SlowaKlucze) i nadkategorii (Nadkategoria)
             //to je przekazujemy do funkcji ustalajacej punkty
-            PolecaneProdukty.AssignPoints(Kategoria, SlowaKlucze, Nadkategoria);
+            if (isAdded)
+            {
+                PolecaneProdukty.AddPoints(Kategoria, SlowaKlucze, Nadkategoria);
+                return;
+            }
+            else
+            {
+                PolecaneProdukty.DeletePoints(Kategoria, SlowaKlucze, Nadkategoria);
+            }
+            
         }
     }
 }
