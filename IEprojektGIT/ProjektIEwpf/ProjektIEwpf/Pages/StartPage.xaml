@@ -17,16 +17,17 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="244*"></ColumnDefinition>
+            <ColumnDefinition Width="244*"></ColumnDefinition>
+            <ColumnDefinition Width="270*"></ColumnDefinition>
+            <ColumnDefinition Width="217*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Wybierz interesującą Cię opcję:</TextBlock>
-        <Button Name="SzukajkaBtn" Grid.Row="2" Grid.ColumnSpan="2" Margin="20" FontSize="20" Click="SzukajkaBtn_Click">Szukaj produktu</Button>
-        <Button Name="PrzegladajBtn" Grid.Row="2"  Grid.Column="2" Grid.ColumnSpan="2" Margin="20" FontSize="20" Click="PrzegladajBtn_Click">
+        <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Column="1" Height="26" Margin="125,52,115,52" Width="274">Wybierz interesującą Cię opcję:</TextBlock>
+        <Button Name="SzukajkaBtn" Grid.Row="2" Grid.ColumnSpan="2" Margin="28,15,213,122" FontSize="20" Click="SzukajkaBtn_Click">Szukaj produktu</Button>
+        <Button Name="PrzegladajBtn" Grid.Row="2"  Grid.Column="1" Margin="125,15,155,122" FontSize="20" Click="PrzegladajBtn_Click" Grid.ColumnSpan="2">
             <TextBlock TextWrapping="Wrap" TextAlignment="Center">Przeglądaj z naszym super algorytmem</TextBlock>
         </Button>
-        <Button Name="QuitBtn" Grid.Row="4" Grid.Column="4" Margin="15,5,15,5">Wyjdź</Button>
+        <Button Name="QuitBtn" Grid.Row="4" Grid.Column="3" Margin="15,5,15,5">Wyjdź</Button>
+        <Button Content="Rekomendacja na żądanie" Name="ŻyczenieBtn" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Top" Width="249" Grid.ColumnSpan="2" Grid.Column="2" Margin="190,15,0,0" Grid.Row="2" Height="187" Click="ŻyczenieBtn_Click"/>
     </Grid>
 </Page>

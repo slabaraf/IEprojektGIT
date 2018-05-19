@@ -27,6 +27,7 @@ namespace ProjektIEwpf.Pages
 
         private void Symuluj_Click(object sender, RoutedEventArgs e)
         {
+            PoleconeStckpnl.Children.Clear();
             List<ProductsCheckout> DoWyswietlenia = new List<ProductsCheckout>();
             if (LiczbaProduktowLstbx.SelectedItem is null)
             {

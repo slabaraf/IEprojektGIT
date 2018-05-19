@@ -35,5 +35,10 @@ namespace ProjektIEwpf
         {
             this.NavigationService.Navigate(new Uri("Pages/SymulacjaPage.xaml", UriKind.Relative));
         }
+
+        private void ŻyczenieBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/RNZ1Page.xaml", UriKind.Relative));
+        }
     }
 }
