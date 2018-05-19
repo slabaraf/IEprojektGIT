@@ -41,7 +41,8 @@ namespace ProjektIEwpf
 
         private void btn_back(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Pages/SklepPage.xaml", UriKind.Relative));
+            //this.NavigationService.Navigate(new Uri("Pages/SklepPage.xaml", UriKind.Relative));
+            this.NavigationService.GoBack();
         }
     }
 }

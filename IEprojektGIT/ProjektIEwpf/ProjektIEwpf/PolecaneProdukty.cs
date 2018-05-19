@@ -24,6 +24,7 @@ namespace ProjektIEwpf
         public static Dictionary<int, int> punktyProduktuPodkat = new Dictionary<int, int>();
         public static Dictionary<int, int> punktyProduktuNadkat = new Dictionary<int, int>();
 
+        public static int LiczbaItemow;
         //                              string Kategoria, string slowaKlucze, string nadkategoria z ProductsCheckout
         public static void AddPoints(string podkategoria, string tagiZBazy, string nadkategoria)
         {
@@ -68,7 +69,7 @@ namespace ProjektIEwpf
                     tagi.Add(item, 1);
                 }
             }
-            CountTagPoints();
+           // CountTagPoints();
         }
 
         public static void DeletePoints(string podkategoria, string tagiZBazy, string nadkategoria)
@@ -91,7 +92,7 @@ namespace ProjektIEwpf
                     tagi[item] /= 2;
                 }
             }
-            CountTagPoints();
+            //CountTagPoints();
         }
 
 
@@ -106,7 +107,7 @@ namespace ProjektIEwpf
             string[] tagi;
 
             //otwieramy baze zeby przejrzec tagi kazdego produktu i wysumowac ile ktory ma pkt
-            string fileName = "Database5.accdb";
+            string fileName = "Database555.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
@@ -161,7 +162,7 @@ namespace ProjektIEwpf
 
 
             //otwieramy baze zeby przejrzec te wszystkie tagi
-            string fileName = "Database5.accdb";
+            string fileName = "Database555.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
@@ -253,31 +254,40 @@ namespace ProjektIEwpf
 
         public static void DodawarkaPolecanych()
         {
-            string fileName = "Database5.accdb";
+            string fileName = "Database555.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
 
-            int j = 0, k=0;
-            for (int i = 1; i < 6; i++)
+
+            ProductsCheckout.DoPolecenia.Clear();
+            for (int i = 1; i <= LiczbaItemow; i++)
             {
                 string queryString = "";
                 ProductsCheckout.DoPolecenia.Add(i, new ProductsCheckout());
-                if (i<3)
+                if (i<=Math.Ceiling(LiczbaItemow*0.4))
                 {
-                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuTag.ElementAt(i).Key;
-                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuTag.ElementAt(i-1).Key;   
+                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuTag.FirstOrDefault(x => x.Value == punktyProduktuTag.Values.Max()).Key;       //punktyProduktuTag.ElementAt(i-1).Key;
+                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuTag.FirstOrDefault(x => x.Value == punktyProduktuTag.Values.Max()).Key;
+                    punktyProduktuTag[ProductsCheckout.DoPolecenia[i].Id] = -1;
+                    punktyProduktuNadkat[ProductsCheckout.DoPolecenia[i].Id] = -1;
+                    punktyProduktuPodkat[ProductsCheckout.DoPolecenia[i].Id] = -1;
                 }
-                else if (i<5)
+                else if (i <= Math.Ceiling(LiczbaItemow * 0.7))
                 {
-                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuNadkat.ElementAt(j).Key;
-                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuNadkat.ElementAt(j).Key;
-                    j++;
+                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuNadkat.FirstOrDefault(x => x.Value == punktyProduktuNadkat.Values.Max()).Key;
+                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuNadkat.FirstOrDefault(x => x.Value == punktyProduktuNadkat.Values.Max()).Key;
+                    punktyProduktuTag[ProductsCheckout.DoPolecenia[i].Id] = -1;
+                    punktyProduktuNadkat[ProductsCheckout.DoPolecenia[i].Id] = -1;
+                    punktyProduktuPodkat[ProductsCheckout.DoPolecenia[i].Id] = -1;
                 }
                 else
                 {
-                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuPodkat.ElementAt(k).Key;
-                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuPodkat.ElementAt(k).Key;
+                    queryString = "SELECT Produkt.Id, Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Vegan, Gluten, Laktoza, Orzechy, [Produkt naturalny], Cena FROM Produkt, Kategoria, Forma WHERE Produkt.Kategoria = Kategoria.Id AND Produkt.Forma = Forma.Id AND Produkt.Id = " + punktyProduktuPodkat.FirstOrDefault(x => x.Value == punktyProduktuPodkat.Values.Max()).Key;
+                    ProductsCheckout.DoPolecenia[i].Id = punktyProduktuPodkat.FirstOrDefault(x => x.Value == punktyProduktuPodkat.Values.Max()).Key;
+                    punktyProduktuTag[ProductsCheckout.DoPolecenia[i].Id] = -1;
+                    punktyProduktuNadkat[ProductsCheckout.DoPolecenia[i].Id] = -1;
+                    punktyProduktuPodkat[ProductsCheckout.DoPolecenia[i].Id] = -1;
                 }
 
 

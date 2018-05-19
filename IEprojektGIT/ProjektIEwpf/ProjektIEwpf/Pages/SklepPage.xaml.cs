@@ -25,7 +25,7 @@ namespace ProjektIEwpf
         public SklepPage()
         {
             InitializeComponent();
-            string fileName = "Database5.accdb";
+            string fileName = "Database555.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
@@ -70,6 +70,7 @@ namespace ProjektIEwpf
             {
 
                 MessageBox.Show("Produkt został kupiony!\nBędzie on miał mniejszy priorytet przy polecaniu", "Dobry wybor!", MessageBoxButton.OK);
+                ProductsCheckout.Obejrzane[ProductsCheckout.Obejrzane.Count].GetItem(false);
             }
             
         }
@@ -81,7 +82,8 @@ namespace ProjektIEwpf
 
         private void btn_back(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Pages/StartPage.xaml", UriKind.Relative));
+            //this.NavigationService.Navigate(new Uri("Pages/StartPage.xaml", UriKind.Relative));
+            this.NavigationService.GoBack();
         }
     }
 }

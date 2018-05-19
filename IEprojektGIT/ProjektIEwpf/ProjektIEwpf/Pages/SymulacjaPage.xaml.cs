@@ -28,11 +28,18 @@ namespace ProjektIEwpf.Pages
         private void Symuluj_Click(object sender, RoutedEventArgs e)
         {
             List<ProductsCheckout> DoWyswietlenia = new List<ProductsCheckout>();
-
+            if (LiczbaProduktowLstbx.SelectedItem is null)
+            {
+                PolecaneProdukty.LiczbaItemow = 8;
+            }
+            else
+            {
+                PolecaneProdukty.LiczbaItemow = Convert.ToInt32(LiczbaProduktowLstbx.SelectedValue.ToString().Substring(LiczbaProduktowLstbx.SelectedValue.ToString().Length - 2, 2));
+            }
             PolecaneProdukty.CountTagPoints();
             PolecaneProdukty.CountCategoryPoints();
             PolecaneProdukty.DodawarkaPolecanych();
-
+            
             List<TextBlock> ListadoStckPanelu = new List<TextBlock>(ListaItemowDoStackPanelu());
             foreach (TextBlock item in ListadoStckPanelu)
             {
@@ -43,34 +50,27 @@ namespace ProjektIEwpf.Pages
         private List<TextBlock> ListaItemowDoStackPanelu()
         {
             List<TextBlock> Itemy = new List<TextBlock>();
-            if (LiczbaProduktowLstbx.SelectedItem == null)
-            {
-                LiczbaProduktowLstbx.SelectedItem = 4;
-            }
 
+            int k = PolecaneProdukty.LiczbaItemow;
 
-            int j = 3;
-            string mystring = LiczbaProduktowLstbx.SelectedValue.ToString().Substring(LiczbaProduktowLstbx.SelectedValue.ToString().Length - 1, 1);
-            int k = Convert.ToInt32(mystring);
-
-            for (int i = 1; i < k; i++)
+            for (int i = 1; i <= k; i++)
             {
 
-                if (i < k / 2.5)
+                if (i <= Math.Ceiling(k*0.4))
                 {
                     Itemy.Add(new TextBlock());
-                    Itemy[i-1].Text = ProductsCheckout.DoPolecenia[i].Nazwa + ProductsCheckout.DoPolecenia[i].Producent + ProductsCheckout.DoPolecenia[i].Cena;
+                    Itemy[i-1].Text = ProductsCheckout.DoPolecenia[i].Nazwa + ", produced by " + ProductsCheckout.DoPolecenia[i].Producent + ", total cost: " + ProductsCheckout.DoPolecenia[i].Cena;
+                    
                 }
-                else if (i < Convert.ToInt32(LiczbaProduktowLstbx.SelectedItem.ToString().Substring(LiczbaProduktowLstbx.SelectedItem.ToString().Length-1, 1)) / (10/4))
+                else if (i <= Math.Ceiling(k*0.7)) //Convert.ToInt32(LiczbaProduktowLstbx.SelectedItem.ToString().Substring(LiczbaProduktowLstbx.SelectedItem.ToString().Length-1, 1)) / (10/4))
                 {
                     Itemy.Add(new TextBlock());
-                    Itemy[i-1].Text = ProductsCheckout.DoPolecenia[j].Nazwa + ProductsCheckout.DoPolecenia[j].Producent + ProductsCheckout.DoPolecenia[j].Cena;
-                    j++;
+                    Itemy[i-1].Text = ProductsCheckout.DoPolecenia[i].Nazwa + ", produced by " + ProductsCheckout.DoPolecenia[i].Producent + ", total cost: " + ProductsCheckout.DoPolecenia[i].Cena;
                 }
                 else
                 {
                     Itemy.Add(new TextBlock());
-                    Itemy[i - 1].Text = ProductsCheckout.DoPolecenia[5].Nazwa + ProductsCheckout.DoPolecenia[5].Producent + ProductsCheckout.DoPolecenia[5].Cena;
+                    Itemy[i - 1].Text = ProductsCheckout.DoPolecenia[i].Nazwa + ", produced by " + ProductsCheckout.DoPolecenia[i].Producent + ", total cost: " + ProductsCheckout.DoPolecenia[i].Cena;
                 }
 
             }
