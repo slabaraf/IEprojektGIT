@@ -46,7 +46,6 @@ namespace ProjektIEwpf.Pages
             if (LiczbaProduktowLstbx.SelectedItem == null)
             {
                 LiczbaProduktowLstbx.SelectedItem = 4;
-
             }
 
 

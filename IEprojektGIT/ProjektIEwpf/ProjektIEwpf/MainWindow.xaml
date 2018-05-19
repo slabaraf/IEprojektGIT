@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektIEwpf"
         mc:Ignorable="d"
-        Title="Dane do rekomendacji na żądanie" Height="358.378" Width="635.676">
+        Title="Dane do rekomendacji na żądanie" Height="450" Width="635.676">
     
     
     <DockPanel>
