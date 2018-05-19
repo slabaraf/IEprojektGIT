@@ -14,12 +14,12 @@ namespace ProjektIEwpf
         static int[] pod1 = new int[4];
         static int[] pod2 = new int[4];
         static int[] pod3 = new int[5];
-        public static void Zeruj()
-        {
-            nad[0] = 0;
-            nad[1] = 0;
-            nad[2] = 0;
-        }
+        //public static void Zeruj()
+        //{
+        //    nad[0] = 0;
+        //    nad[1] = 0;
+        //    nad[2] = 0;
+        //}
         public static void AddPointsAbove(int index, int points)
         {
             nad[index] += points;
