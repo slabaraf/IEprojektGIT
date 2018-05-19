@@ -16,38 +16,33 @@ using System.Windows.Shapes;
 namespace ProjektIEwpf.Pages
 {
     /// <summary>
-    /// Interaction logic for RNZ1Page.xaml
+    /// Interaction logic for RNZ2Page.xaml
     /// </summary>
-    public partial class RNZ1Page : Page
+    public partial class RNZ2Page : Page
     {
-        public RNZ1Page()
+        public RNZ2Page()
         {
             InitializeComponent();
         }
-        WishClass x = new WishClass();
-
+        
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(Radnio1.IsChecked == true)
+            if (Radnio1.IsChecked == true)
             {
-                WishClass.AddPointsAbove(0, 1);
-                this.NavigationService.Navigate(new Uri("Pages/RNZ2Page.xaml", UriKind.Relative));
+                WishClass.AddPointsAbove(0, 2);
+                this.NavigationService.Navigate(new Uri("Pages/RNZ4Page.xaml", UriKind.Relative));
             }
             else if (Radnio2.IsChecked == true)
             {
-                WishClass.AddPointsAbove(1, 1);
-                this.NavigationService.Navigate(new Uri("Pages/RNZ2Page.xaml", UriKind.Relative));
+                WishClass.AddPointsAbove(1, 2);
+                this.NavigationService.Navigate(new Uri("Pages/RNZ5Page.xaml", UriKind.Relative));
             }
-            else if(Radnio3.IsChecked == true)
-            {
-                WishClass.AddPointsAbove(2, 1);
-                this.NavigationService.Navigate(new Uri("Pages/RNZ3Page.xaml", UriKind.Relative));
-            }
+
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Pages/StartPage.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Pages/RNZ1Page.xaml", UriKind.Relative));
         }
     }
 }
