@@ -48,32 +48,34 @@ namespace ProjektIEwpf.Pages
 
             if(Łykanie.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 1 AND";
+                WishClass.StringRNZ6 += "Forma = 1 AND ";
             }
             if (Rozpuszanie.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 2 AND";
+                WishClass.StringRNZ6 += "Forma = 2 AND ";
             }
             if (Proszki.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 3 AND";
+                WishClass.StringRNZ6 += "Forma = 3 AND ";
             }//
             if (Batony.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 4 AND";
+                WishClass.StringRNZ6 += "Forma = 4 AND ";
             }
             if (Żele.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 5 AND";
+                WishClass.StringRNZ6 += "Forma = 5 AND ";
             }
             if (Napoje.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 6 AND";
+                WishClass.StringRNZ6 += "Forma = 6 AND ";
             }
             if (Maści.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 7";
+                WishClass.StringRNZ6 += "Forma = 7 AND";
             }
+
+            
 
         }
     }

@@ -26,11 +26,14 @@ namespace ProjektIEwpf
         static int[] PKx3 = new int[5];
 
         public static string StringRNZ6;
+        
         public static string StringRNZ7;
         public static int nav = 0;// zmienna służąca do cofania ze strony szóstej 
         public static int n = 10;// na razie sztywne 10
 
         static int[] lenghts = new int[3];
+
+        public static StringBuilder sb = new StringBuilder();
         public static void Points()
         {
             nk = nad.Sum();
@@ -106,10 +109,11 @@ namespace ProjektIEwpf
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
-
+            
             string queryString;
+            
             queryString = "SELECT Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Cena FROM Produkt, Kategoria, Forma WHERE ";
-            queryString += StringRNZ6 + "AND" +StringRNZ7;
+            queryString += StringRNZ6 /*+ "AND"*/ +StringRNZ7;
             string queryString0 = queryString;
             string queryString1 = queryString;
             string queryString2 = queryString;
@@ -159,6 +163,171 @@ namespace ProjektIEwpf
                     help[1] = helper++;
                 }
             }
+
+            OleDbCommand cmd0 = new OleDbCommand(queryString0, con);
+            OleDbDataReader reader0 = cmd0.ExecuteReader();
+
+            OleDbCommand cmd1 = new OleDbCommand(queryString1, con);
+            OleDbDataReader reader1 = cmd1.ExecuteReader();
+
+            OleDbCommand cmd2 = new OleDbCommand(queryString2, con);
+            OleDbDataReader reader2 = cmd2.ExecuteReader();
+
+            
+
+            if (help[0] == 1)
+            {
+                while (reader0.Read())
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        sb.Append(reader0.GetValue(i));
+                    }
+                    sb.Append("\n");
+                }
+                if (help[1] < help[2])
+                {
+                    while (reader1.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader1.GetValue(i));
+                        }
+                        sb.Append("\n");
+                    }
+                    while (reader2.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader2.GetValue(i));
+                        }
+                        sb.Append("\n");
+                    }
+                }
+                else
+                {
+                    while (reader2.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader2.GetValue(i));
+                        }
+                        sb.Append("\n");
+                        while (reader1.Read())
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                sb.Append(reader1.GetValue(i));
+                            }
+                            sb.Append("\n");
+                        }
+                    }
+
+                }
+            }
+
+            else if (help[1] == 1)
+            {
+                while (reader1.Read())
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        sb.Append(reader1.GetValue(i));
+                    }
+                    sb.Append("\n");
+                }
+                if (help[0] < help[2])
+                {
+                    while (reader0.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader0.GetValue(i));
+                        }
+                        sb.Append("\n");
+                    }
+                    while (reader2.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader2.GetValue(i));
+                        }
+                        sb.Append("\n");
+                    }
+                }
+                else
+                {
+                    while (reader2.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader2.GetValue(i));
+                        }
+                        sb.Append("\n");
+                        while (reader0.Read())
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                sb.Append(reader0.GetValue(i));
+                            }
+                            sb.Append("\n");
+                        }
+                    }
+
+                }
+            }
+
+            else if (help[2] == 1)
+            {
+                while (reader2.Read())
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        sb.Append(reader2.GetValue(i));
+                    }
+                    sb.Append("\n");
+                }
+                if (help[0] < help[1])
+                {
+                    while (reader0.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader0.GetValue(i));
+                        }
+                        sb.Append("\n");
+                    }
+                    while (reader1.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader1.GetValue(i));
+                        }
+                        sb.Append("\n");
+                    }
+                }
+                else
+                {
+                    while (reader1.Read())
+                    {
+                        for (int i = 0; i < 5; i++)
+                        {
+                            sb.Append(reader1.GetValue(i));
+                        }
+                        sb.Append("\n");
+                        while (reader0.Read())
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                sb.Append(reader0.GetValue(i));
+                            }
+                            sb.Append("\n");
+                        }
+                    }
+
+                }
+            }
+
 
         }
     }
