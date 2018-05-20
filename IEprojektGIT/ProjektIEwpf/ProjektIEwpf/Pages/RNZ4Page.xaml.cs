@@ -53,6 +53,7 @@ namespace ProjektIEwpf.Pages
                 WishClass.AddPointsUnder(3, 2, 1);
                 this.NavigationService.Navigate(new Uri("Pages/RNZ6Page.xaml", UriKind.Relative));
             }
+            WishClass.nav = 4;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

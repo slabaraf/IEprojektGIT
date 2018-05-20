@@ -29,12 +29,12 @@ namespace ProjektIEwpf.Pages
         {
             if (Radnio1.IsChecked == true)
             {
-                WishClass.AddPointsAbove(0, 2);
+                WishClass.AddPointsAbove(1, 2);
                 this.NavigationService.Navigate(new Uri("Pages/RNZ4Page.xaml", UriKind.Relative));
             }
             else if (Radnio2.IsChecked == true)
             {
-                WishClass.AddPointsAbove(1, 2);
+                WishClass.AddPointsAbove(2, 2);
                 this.NavigationService.Navigate(new Uri("Pages/RNZ5Page.xaml", UriKind.Relative));
             }
 

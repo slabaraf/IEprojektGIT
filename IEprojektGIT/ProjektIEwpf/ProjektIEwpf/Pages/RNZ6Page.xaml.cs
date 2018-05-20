@@ -24,5 +24,27 @@ namespace ProjektIEwpf.Pages
         {
             InitializeComponent();
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            switch(WishClass.nav)
+            {
+                case 3:
+                    this.NavigationService.Navigate(new Uri("Pages/RNZ3Page.xaml", UriKind.Relative));
+                    break;
+                case 4:
+                    this.NavigationService.Navigate(new Uri("Pages/RNZ4Page.xaml", UriKind.Relative));
+                    break;
+                case 5:
+                    this.NavigationService.Navigate(new Uri("Pages/RNZ5Page.xaml", UriKind.Relative));
+                    break;
+            }
+
+        }
+
+        private void NextBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/RNZ7Page.xaml", UriKind.Relative));
+        }
     }
 }

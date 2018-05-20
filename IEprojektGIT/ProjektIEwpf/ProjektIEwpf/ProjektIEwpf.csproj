@@ -88,6 +88,9 @@
     <Compile Include="Pages\RNZ6Page.xaml.cs">
       <DependentUpon>RNZ6Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RNZ7Page.xaml.cs">
+      <DependentUpon>RNZ7Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SymulacjaPage.xaml.cs">
       <DependentUpon>SymulacjaPage.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RNZ6Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RNZ7Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

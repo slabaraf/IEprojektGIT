@@ -9,7 +9,17 @@
       Title="RNZ6Page">
 
     <Grid>
-        <Label Content="Czy produkt może być w formie:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="104,55,0,0"/>
+        <Label Content="Czy produkt może być w formie:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,55,0,0"/>
+        <CheckBox Name="Łykanie" Content="Tabletek do łykania" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,100,0,0"/>
+        <CheckBox Name="Rozpuszanie" Content="Tabletek rozpuszczalnych" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,130,0,0"/>
+        <CheckBox Name="Proszki" Content="Proszków" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,160,0,0"/>
+        <CheckBox Name="Batony" Content="Batonów" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,190,0,0"/>
+        <CheckBox Name="Żele" Content="Żeli" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,220,0,0"/>
+        <CheckBox Name="Napoje" Content="Napojów" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,250,0,0"/>
+        <CheckBox Name="Maści" Content="Maści" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,280,0,0"/>
+
+        <Button Name="BackBtn" Content="Cofnij" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="57,340,0,0" Click="BackBtn_Click"/>
+        <Button Name="NextBtn" Content="Dalej" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="442,340,0,0" Click="NextBtn_Click"/>
 
     </Grid>
 </Page>
