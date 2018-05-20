@@ -32,11 +32,14 @@ namespace ProjektIEwpf.Pages
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            WishClass.StringRNZ7 = " Gluten != " + Gluten.IsChecked + 
-                " AND Vegan != " +Wegan.IsChecked + 
-                " AND Produkt Naturalny != " + Naturalne.IsChecked;
+            WishClass.StringRNZ7 = " Gluten != " + Gluten.IsChecked +
+                " OR Vegan != " + Wegan.IsChecked +
+                " OR 'Produkt Naturalny' != " + Naturalne.IsChecked;
 
+
+            WishClass.Points();
             WishClass.ShowProducts();
+            
 
             this.NavigationService.Navigate(new Uri("Pages/RNZLastPage.xaml", UriKind.Relative));
         }
