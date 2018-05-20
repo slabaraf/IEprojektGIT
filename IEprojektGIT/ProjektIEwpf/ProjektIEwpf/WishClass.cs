@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,9 @@ namespace ProjektIEwpf
         static int[] PKx2 = new int[4];
         static int[] PKx3 = new int[5];
 
-        public static int nav = 0;
+        public static string StringRNZ6;
+        public static string StringRNZ7;
+        public static int nav = 0;// zmienna służąca do cofania ze strony szóstej 
         public static void Points()
         {
             nk = nad.Sum();
@@ -65,6 +68,18 @@ namespace ProjektIEwpf
                 pod3[index-1] += points;
             }
             
+        }
+
+        public static void ShowProducts()
+        {
+            string fileName = "Database555.accdb";
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
+            con.Open();
+
+            string queryString;
+            queryString = "SELECT Nazwa, Producent, Kategoria.Przeznaczenie, Forma.Forma, Cena FROM Produkt, Kategoria, Forma WHERE ";
+            queryString += StringRNZ6 + StringRNZ7;
         }
     }
 }

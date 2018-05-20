@@ -45,6 +45,36 @@ namespace ProjektIEwpf.Pages
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Pages/RNZ7Page.xaml", UriKind.Relative));
+
+            if(Łykanie.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 1 AND";
+            }
+            if (Rozpuszanie.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 2 AND";
+            }
+            if (Proszki.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 3 AND";
+            }//
+            if (Batony.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 4 AND";
+            }
+            if (Żele.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 5 AND";
+            }
+            if (Napoje.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 6 AND";
+            }
+            if (Maści.IsChecked == true)
+            {
+                WishClass.StringRNZ6 += "Forma = 7";
+            }
+
         }
     }
 }
