@@ -59,7 +59,7 @@ namespace ProjektIEwpf.Pages
                 }
             }
 
-            string fileName = "Database555.accdb";
+            string fileName = "Database555-1.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();

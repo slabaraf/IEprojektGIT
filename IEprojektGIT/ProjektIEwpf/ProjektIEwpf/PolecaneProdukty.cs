@@ -107,7 +107,7 @@ namespace ProjektIEwpf
             string[] tagi;
 
             //otwieramy baze zeby przejrzec tagi kazdego produktu i wysumowac ile ktory ma pkt
-            string fileName = "Database555.accdb";
+            string fileName = "Database555-1.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
@@ -162,7 +162,7 @@ namespace ProjektIEwpf
 
 
             //otwieramy baze zeby przejrzec te wszystkie tagi
-            string fileName = "Database555.accdb";
+            string fileName = "Database555-1.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
@@ -254,7 +254,7 @@ namespace ProjektIEwpf
 
         public static void DodawarkaPolecanych()
         {
-            string fileName = "Database555.accdb";
+            string fileName = "Database555-1.accdb";
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, fileName);
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path);
             con.Open();
