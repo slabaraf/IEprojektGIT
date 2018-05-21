@@ -17,12 +17,14 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <TextBox Name="IloscTxtBx" Height="30" Width="50"/>
-        <Button Name="ShowResults" Height="30" Width="50" Grid.Column="1" Content="Pokaz" Click="ShowResults_Click"/>
+        <TextBox Name="IloscTxtBx" Height="30" Width="50" Margin="125,50,143,10"/>
+        <Button Name="ShowResults" Height="30" Width="50" Grid.Column="1" Content="Pokaz" Click="ShowResults_Click" Margin="58,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <ScrollViewer Margin="30,30,30,30" Grid.ColumnSpan="2" Grid.Row="1">
             <StackPanel Name="ResultsWrpPnl" FlowDirection="LeftToRight" Orientation="Vertical" Margin="30" >
-            
+
             </StackPanel>
         </ScrollViewer>
+        <Label Content="Wpisz liczbę produktów do wyświetlenia" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,12,0,0"/>
+        <Button Content="Menu" Name="Menu" Grid.Column="1" Margin="193,30,0,0" Click="Menu_Click" HorizontalAlignment="Left" Width="50" Height="30" VerticalAlignment="Top"/>
     </Grid>
 </Page>

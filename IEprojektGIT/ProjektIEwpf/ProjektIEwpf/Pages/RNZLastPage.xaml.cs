@@ -123,5 +123,10 @@ namespace ProjektIEwpf.Pages
                 ileZostalo--;
             }
         }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/StartPage.xaml", UriKind.Relative));
+        }
     }
 }
