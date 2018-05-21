@@ -27,14 +27,14 @@ namespace ProjektIEwpf.Pages
         
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Radnio1.IsChecked == true)
+            if (Radnio1.IsChecked == true) //2.1
             {
-                WishClass.AddPointsAbove(1, 2);
+                WishClass.CatPoints[0] += 2;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ4Page.xaml", UriKind.Relative));
             }
-            else if (Radnio2.IsChecked == true)
+            else if (Radnio2.IsChecked == true) //2.2
             {
-                WishClass.AddPointsAbove(2, 2);
+                WishClass.CatPoints[1] += 2;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ5Page.xaml", UriKind.Relative));
             }
 

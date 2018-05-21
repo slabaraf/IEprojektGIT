@@ -27,31 +27,30 @@ namespace ProjektIEwpf.Pages
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Radnio1.IsChecked == true)
+            if (Radnio1.IsChecked == true) //5.1
             {
-                WishClass.AddPointsAbove(2, 1);
-                WishClass.AddPointsUnder(2, 1, 3);
+                WishClass.CatPoints[1] += 1;
+                WishClass.SubCatPoints[4] += 3;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ6Page.xaml", UriKind.Relative));
             }
-            if (Radnio2.IsChecked == true)
+            if (Radnio2.IsChecked == true) //5.2
             {
-                WishClass.AddPointsAbove(2, 1);
-                WishClass.AddPointsUnder(2, 2, 3);
+                WishClass.CatPoints[1] += 1;
+                WishClass.SubCatPoints[5] += 3;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ6Page.xaml", UriKind.Relative));
             }
-            if (Radnio3.IsChecked == true)
+            if (Radnio3.IsChecked == true) //5.3
             {
-                WishClass.AddPointsAbove(2, 1);
-                WishClass.AddPointsUnder(2, 3, 3);
+                WishClass.CatPoints[1] += 1;
+                WishClass.SubCatPoints[6] += 3;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ6Page.xaml", UriKind.Relative));
             }
-            if (Radnio4.IsChecked == true)
+            if (Radnio4.IsChecked == true) //5.4
             {
-                WishClass.AddPointsAbove(2, 1);
-                WishClass.AddPointsUnder(2, 4, 3);
+                WishClass.CatPoints[1] += 1;
+                WishClass.SubCatPoints[7] += 3;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ6Page.xaml", UriKind.Relative));
             }
-            WishClass.nav = 5;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

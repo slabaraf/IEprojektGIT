@@ -52,8 +52,8 @@
         </ListBox>
         <Button Grid.Column="1" Margin="100,30,100,30" FontSize="14" Click="Symuluj_Click">Symuluj</Button>
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Margin="15,30,165,30" CanContentScroll="False">
-            <WrapPanel Name="PoleconeStckpnl" Grid.Row="1" Grid.ColumnSpan="2" FlowDirection="LeftToRight">
-            </WrapPanel>
+            <StackPanel Name="PoleconeStckpnl" Grid.Row="1" Grid.ColumnSpan="2">
+            </StackPanel>
         </ScrollViewer>
 
         <Button Content="Cofnij" Click="btn_back" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Grid.Column="1" Margin="0,0,34,250" Grid.Row="1"/>

@@ -32,16 +32,55 @@ namespace ProjektIEwpf.Pages
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            WishClass.StringRNZ7 = " Gluten != " + Gluten.IsChecked +
-                " OR Vegan != " + Wegan.IsChecked +
-                " OR 'Produkt Naturalny' != " + Naturalne.IsChecked;
-
-
-            WishClass.Points();
-            WishClass.ShowProducts();
-            
-
             this.NavigationService.Navigate(new Uri("Pages/RNZLastPage.xaml", UriKind.Relative));
+
+            WishClass.queryString += " AND ";
+            WishClass.initialLength = WishClass.queryString.Length;
+
+            if (Vegan.IsChecked == true)
+            {
+                WishClass.queryString += "Produkt.Vegan = true";
+            }
+
+            if (Gluten.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Gluten = false";
+            }
+            else if (Gluten.IsChecked == true)
+            {
+                WishClass.queryString += " AND Produkt.Gluten = false";
+            }
+
+            if (Laktoza.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Laktoza = false";
+            }
+            else if (Laktoza.IsChecked == true)
+            {
+                WishClass.queryString += " AND Produkt.Laktoza = false";
+            }
+
+            if (Orzechy.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Orzechy = false";
+            }
+            else if (Orzechy.IsChecked == true)
+            {
+                WishClass.queryString += " AND Produkt.Orzechy = false";
+            }
+
+            if (ProduktNaturalny.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "[Produkt.Produkt naturalny] = true";
+            }
+            else if (ProduktNaturalny.IsChecked == true)
+            {
+                WishClass.queryString += " AND [Produkt.Produkt naturalny] = true";
+            }
+
+            WishClass.queryString = WishClass.queryString.Insert(WishClass.initialLength, "(");
+            WishClass.queryString = WishClass.queryString.Insert(WishClass.queryString.Length, ")");
+
         }
     }
 }

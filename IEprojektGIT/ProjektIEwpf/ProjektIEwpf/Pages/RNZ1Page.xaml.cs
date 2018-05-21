@@ -24,26 +24,29 @@ namespace ProjektIEwpf.Pages
         {
             InitializeComponent();
         }
-        WishClass x = new WishClass();
+
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(Radnio1.IsChecked == true)
+            if(Radnio1.IsChecked == true) //1.1
             {
-                WishClass.AddPointsAbove(1, 1);
-                WishClass.AddPointsAbove(2, 1);
-                WishClass.AddPointsAbove(3, 1);
+                WishClass.CatPoints[0] = 1;
+                WishClass.CatPoints[1] = 1;
+                WishClass.CatPoints[2] = 1;
+                WishClass.SubCatPoints[8] = 1;
+                WishClass.SubCatPoints[9] = 1;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ2Page.xaml", UriKind.Relative));
             }
-            else if (Radnio2.IsChecked == true)
+            else if (Radnio2.IsChecked == true) //1.2
             {
-                WishClass.AddPointsAbove(1, 2);
-                WishClass.AddPointsAbove(2, 2);
+                WishClass.CatPoints[0] = 2;
+                WishClass.CatPoints[1] = 2;
+                WishClass.CatPoints[2] = 1;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ2Page.xaml", UriKind.Relative));
             }
-            else if(Radnio3.IsChecked == true)
+            else if(Radnio3.IsChecked == true) //1.3
             {
-                WishClass.AddPointsAbove(3, 1);
+                WishClass.CatPoints[2] = 1;
                 this.NavigationService.Navigate(new Uri("Pages/RNZ3Page.xaml", UriKind.Relative));
             }
         }

@@ -9,6 +9,12 @@
       Title="RNZLastPage">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Name="Itemki" VerticalAlignment="Top" Margin="73,129,0,0" Height="158" Width="295"/>
+        <TextBox Name="IloscTxtBx" Margin="30,50,700,360"/>
+        <Button Name="ShowResults" Margin="700,50,30,360" Content="Pokaz" Click="ShowResults_Click"/>
+        <ScrollViewer Margin="30,150,30,50">
+            <WrapPanel Name="ResultsWrpPnl" FlowDirection="LeftToRight" Orientation="Horizontal">
+            
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

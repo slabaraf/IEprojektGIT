@@ -27,18 +27,7 @@ namespace ProjektIEwpf.Pages
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            switch(WishClass.nav)
-            {
-                case 3:
-                    this.NavigationService.Navigate(new Uri("Pages/RNZ3Page.xaml", UriKind.Relative));
-                    break;
-                case 4:
-                    this.NavigationService.Navigate(new Uri("Pages/RNZ4Page.xaml", UriKind.Relative));
-                    break;
-                case 5:
-                    this.NavigationService.Navigate(new Uri("Pages/RNZ5Page.xaml", UriKind.Relative));
-                    break;
-            }
+            this.NavigationService.GoBack();
 
         }
 
@@ -48,35 +37,65 @@ namespace ProjektIEwpf.Pages
 
             if(Łykanie.IsChecked == true)
             {
-                WishClass.StringRNZ6 += "Forma = 1 OR ";
-            }
-            if (Rozpuszanie.IsChecked == true)
-            {
-                WishClass.StringRNZ6 += "Forma = 2 OR ";
-            }
-            if (Proszki.IsChecked == true)
-            {
-                WishClass.StringRNZ6 += "Forma = 3 OR ";
-            }//
-            if (Batony.IsChecked == true)
-            {
-                WishClass.StringRNZ6 += "Forma = 4 OR ";
-            }
-            if (Żele.IsChecked == true)
-            {
-                WishClass.StringRNZ6 += "Forma = 5 OR ";
-            }
-            if (Napoje.IsChecked == true)
-            {
-                WishClass.StringRNZ6 += "Forma = 6 OR ";
-            }
-            if (Maści.IsChecked == true)
-            {
-                WishClass.StringRNZ6 += "Forma = 7 OR";
+                WishClass.queryString += "Produkt.Forma = 1";
             }
 
-            
+            if (Rozpuszanie.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Forma = 2";
+            }
+            else if (Rozpuszanie.IsChecked == true)
+            {
+                WishClass.queryString += " OR Produkt.Forma = 2";
+            }
 
+            if (Proszki.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Forma = 3";
+            }
+            else if (Proszki.IsChecked == true)
+            {
+                WishClass.queryString += " OR Produkt.Forma = 3";
+            }
+
+            if (Batony.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Forma = 4";
+            }
+            else if (Batony.IsChecked == true)
+            {
+                WishClass.queryString += " OR Produkt.Forma = 4";
+            }
+
+            if (Żele.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Forma = 5";
+            }
+            else if (Żele.IsChecked == true)
+            {
+                WishClass.queryString += " OR Produkt.Forma = 6";
+            }
+
+            if (Napoje.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Forma = 6";
+            }
+            else if (Napoje.IsChecked == true)
+            {
+                WishClass.queryString += " OR Produkt.Forma = 6";
+            }
+
+            if (Maści.IsChecked == true && WishClass.queryString.Length == WishClass.initialLength)
+            {
+                WishClass.queryString += "Produkt.Forma = 7";
+            }
+            else if (Maści.IsChecked == true)
+            {
+                WishClass.queryString += " OR Produkt.Forma = 7";
+            }
+
+            WishClass.queryString = WishClass.queryString.Insert(WishClass.initialLength, "(");
+            WishClass.queryString = WishClass.queryString.Insert(WishClass.queryString.Length, ")");
         }
     }
 }
