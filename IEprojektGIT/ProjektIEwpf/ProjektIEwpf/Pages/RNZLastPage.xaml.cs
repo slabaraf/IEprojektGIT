@@ -88,6 +88,7 @@ namespace ProjektIEwpf.Pages
                             sb.Append(", by ");
                             sb.Append(reader.GetValue(1).ToString());
                             sb.Append("; ");
+                            sb.Append("                          ");
                             TextBlock txtBlock = new TextBlock();
                             txtBlock.Text = sb.ToString();
                             ResultsWrpPnl.Children.Add(txtBlock);
